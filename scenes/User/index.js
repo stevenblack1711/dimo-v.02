@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 const index = () => {
   return (
     <View>
-      <Text>User</Text>
+      <Text>User 1jhsdkjashdjkashd</Text>
     </View>
   );
 };
