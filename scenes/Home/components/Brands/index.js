@@ -3,39 +3,11 @@ import {View, Text, StyleSheet, FlatList} from 'react-native';
 
 import Separator from '../../../Separator/index';
 import BrandCard from './BrandCard/index';
+import {withNavigation} from 'react-navigation'
 
-const BRANDS = [
-  {
-    key: '1',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '2',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '3',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '4',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-];
+const BRANDS = require('../../../../utils/store.json')
 
-const index = () => {
+const index = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Outstanding brand</Text>
@@ -72,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default index;
+export default withNavigation(index);

@@ -7,25 +7,26 @@ import {
   ActivityIndicator,
   View,
 } from 'react-native';
-import {Image, Icon} from 'react-native-elements';
+import { Image, Icon } from 'react-native-elements';
+import { withNavigation } from 'react-navigation'
 
-const index = ({brand}) => {
-  const {uri, name, rating} = brand;
+const index = (props) => {
+  const { img, name, point } = props.brand;
 
   return (
-    <TouchableOpacity style={[styles.card]} >
+    <TouchableOpacity style={[styles.card]} onPress={() => props.navigation.navigate("Store")}>
       <Image
-        source={{uri: uri}}
+        source={{ uri: img }}
         style={styles.img}
         PlaceholderContent={<ActivityIndicator />}
       />
       <Text style={styles.name}>{name}</Text>
       <View style={styles.ratingContainer}>
         <Icon name="star" type="material" color="orange" size={20} />
-        <Text style={{fontSize: 15, fontWeight: 'bold', opacity: 0.7}}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', opacity: 0.7 }}>
           {' '}
-          {rating}
-          <Text style={{opacity: 0.3, fontWeight: 'normal'}}>/5</Text>
+          {point}
+          <Text style={{ opacity: 0.3, fontWeight: 'normal' }}>/5</Text>
         </Text>
       </View>
     </TouchableOpacity>
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingVertical: 5,
   },
-  img: {width: 50, height: 50},
+  img: { width: 50, height: 50 },
   name: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -54,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default index;
+export default withNavigation(index);

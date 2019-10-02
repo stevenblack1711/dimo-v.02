@@ -6,7 +6,7 @@ import Categories from './components/Categories/index';
 import Brands from './components/Brands/index';
 import Recommend from './components/Recommend/index';
 
-const index = () => {
+const index = (props) => {
   return (
     <View style={styles.container}>
       <Header />
