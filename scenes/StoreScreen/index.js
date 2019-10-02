@@ -162,12 +162,12 @@ const styles = StyleSheet.create({
       userWrap: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         margin: 10
       },
       userImg: {
-        width: 75,
-        height: 75,
+        width: 50,
+        height: 50,
         borderRadius: 180
       },
       textWrap:

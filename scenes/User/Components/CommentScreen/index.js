@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image, Button, ScrollView, TouchableOpacity} from 'react-native'
+import { Text, View, StyleSheet, Image, Button, ScrollView, TouchableOpacity } from 'react-native'
 import { Card, ListItem } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Entypo';
 
@@ -9,50 +9,50 @@ let user = require('../../../../utils/user.json');
 export default class CommentScreen extends Component {
 
   render() {
-  return (     
-        <ScrollView style={styles.container}>
-          <Card style={{padding: 0, flex: 1} }>
+    return (
+      <ScrollView style={styles.container}>
+        <Card style={{ padding: 0, flex: 1 }}>
           {
-              store.map((item, i) => {
-                return (
-                  <View key={i} style={styles.cmtWrap} >                  
-                    <TouchableOpacity style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store")}>
+            store.map((item, i) => {
+              return (
+                <View key={i} style={styles.cmtWrap} >
+                  <TouchableOpacity style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store")}>
                     <Image
-                      style={styles.image}                    
+                      style={styles.image}
                       source={{ uri: item.img }}
                     />
                     <View style={styles.textWrap}>
-                    <Text style={styles.storeName}>{item.name + ' - ' + item.str}</Text>
-                    <Text style={styles.addName}>{item.add}</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "flex-start" }}>
-                      <Icon name="star" color="#9e4441" size={16} />
-                      <Text style={styles.addName}>{'  ' + item.point}</Text>
+                      <Text style={styles.storeName}>{item.name + ' - ' + item.str}</Text>
+                      <Text style={styles.addName}>{item.add}</Text>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "flex-start" }}>
+                        <Icon name="star" color="#9e4441" size={16} />
+                        <Text style={styles.addName}>{'  ' + item.point}</Text>
+                      </View>
                     </View>
-                    </View>
-                    </TouchableOpacity>
-                    <View>
-                        <Text style={styles.rvStyle}>
-                          {item.review[0].rv}
-                        </Text>
-                        <ScrollView horizontal={true}>
-                        {item.review[0].rvImg.map((item, i) => {
-                            return (
-                                <Image
-                                  key={i}
-                                  style={styles.rvImg}                    
-                                  source={{ uri: item.imgUrl }}
-                                />
-                            )
-                            })
-                          }                      
-                        </ScrollView>
-                    </View>
+                  </TouchableOpacity>
+                  <View>
+                    <Text style={styles.rvStyle}>
+                      {item.review[0].rv}
+                    </Text>
+                    <ScrollView horizontal={true}>
+                      {item.review[0].rvImg.map((item, i) => {
+                        return (
+                          <Image
+                            key={i}
+                            style={styles.rvImg}
+                            source={{ uri: item.imgUrl }}
+                          />
+                        )
+                      })
+                      }
+                    </ScrollView>
                   </View>
-                );
-              })
-            }
-          </Card>
-        </ScrollView>
+                </View>
+              );
+            })
+          }
+        </Card>
+      </ScrollView>
     )
   }
 }
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
   },
-  
+
   rvStyle: {
     color: '#af7e7c',
     fontSize: 16,
@@ -113,11 +113,11 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   rvImgStyle: {
-    flexDirection: 'row'    
+    flexDirection: 'row'
   },
   rvImg: {
     width: 100,
     height: 100,
     margin: 5
   }
-  });
+});

@@ -94,24 +94,9 @@ const tabNavigator = createBottomTabNavigator(
       inactiveTintColor: '#808080',
     },
 
-    initialRouteName: 'Maps',
+    initialRouteName: 'Home',
   },
 );
 
-const Drawer = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Drawer Item 1</Text>
-    <Text>Drawer Item 2</Text>
-  </View>
-);
 
-const drawer = createDrawerNavigator(
-  {
-    Initial: tabNavigator,
-  },
-  {
-    contentComponent: Drawer,
-  },
-);
-
-export default drawer;
+export default tabNavigator;
