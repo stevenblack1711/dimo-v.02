@@ -90,8 +90,11 @@ const tabNavigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: '#e91e63',
-      inactiveTintColor: '#808080',
+      activeTintColor: 'white',
+      inactiveTintColor: '#f4c2c0',
+      style: {
+        backgroundColor: '#e9928f',
+      }
     },
 
     initialRouteName: 'Home',

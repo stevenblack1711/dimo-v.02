@@ -10,7 +10,7 @@ const BRANDS = require('../../../../utils/store.json')
 const index = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Outstanding brand</Text>
+      <Text style={styles.title}>Nhãn hiệu tuyệt vời</Text>
       <Separator />
       <View style={styles.flatList}>
         <FlatList
@@ -38,6 +38,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
+    color: '#9e4441',
+    fontWeight: 'bold'
   },
   flatList: {
     marginTop: 15,

@@ -2,49 +2,21 @@ import React from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 
 import Separator from '../../../Separator/index';
-import BrandCard from './Card/index';
+import Card from './Card/index';
+import {withNavigation} from 'react-navigation'
 
-const BRANDS = [
-  {
-    key: '1',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '2',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '3',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '4',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-];
+const BRANDS = require('../../../../utils/store.json')
 
-const index = () => {
+const index = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Recommend for you</Text>
+      <Text style={styles.title}>Đề xuất cho bạn</Text>
       <Separator />
       <View style={styles.flatList}>
         <FlatList
           data={BRANDS}
           renderItem={({item}) => (
-            <BrandCard
+            <Card
               brand={item}
               // title={item.title}
               // selected={!!selected.get(item.id)}
@@ -66,10 +38,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
+    color: '#9e4441',
+    fontWeight: 'bold'
   },
   flatList: {
     marginTop: 15,
   },
 });
 
-export default index;
+export default withNavigation(index);

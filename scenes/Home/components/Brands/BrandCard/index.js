@@ -11,7 +11,7 @@ import { Image, Icon } from 'react-native-elements';
 import { withNavigation } from 'react-navigation'
 
 const index = (props) => {
-  const { img, name, point } = props.brand;
+  const { img, name, point, add } = props.brand;
 
   return (
     <TouchableOpacity style={[styles.card]} onPress={() => props.navigation.navigate("Store")}>
@@ -21,12 +21,13 @@ const index = (props) => {
         PlaceholderContent={<ActivityIndicator />}
       />
       <Text style={styles.name}>{name}</Text>
+      <Text style={styles.add}>{add}</Text>
       <View style={styles.ratingContainer}>
         <Icon name="star" type="material" color="orange" size={20} />
-        <Text style={{ fontSize: 15, fontWeight: 'bold', opacity: 0.7 }}>
+        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#9e4441' }}>
           {' '}
           {point}
-          <Text style={{ opacity: 0.3, fontWeight: 'normal' }}>/5</Text>
+          <Text style={{fontWeight: 'bold', color: '#9e4441' }}>/10</Text>
         </Text>
       </View>
     </TouchableOpacity>
@@ -46,12 +47,20 @@ const styles = StyleSheet.create({
   },
   img: { width: 50, height: 50 },
   name: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
-    opacity: 0.8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 5
+  },
+  add: {
+    fontSize: 14,
+    fontWeight: '400', 
+    marginTop: 5
   },
   ratingContainer: {
     flexDirection: 'row',
+    marginTop: 5
   },
 });
 
