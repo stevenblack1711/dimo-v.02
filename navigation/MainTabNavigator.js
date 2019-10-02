@@ -12,11 +12,13 @@ import MapsScreen from '../scenes/Maps/index';
 import UserScreen from '../scenes/User/index';
 import CommentScreen from '../scenes/User/Components/CommentScreen/index';
 import LikedScreen from '../scenes/User/Components/LikedScreen/index';
+import StoreScreen from '../scenes/StoreScreen/index';
 
 
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    Store: StoreScreen
   },
   {
     headerMode: 'none',
@@ -47,9 +49,10 @@ const UserStack = createStackNavigator(
     User:  UserScreen ,
     Liked:  LikedScreen ,
     Comment: CommentScreen,
+    Store: StoreScreen,
   },
   {
-    headerMode: 'none',
+    headerMode: 'float',
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
         <Icon

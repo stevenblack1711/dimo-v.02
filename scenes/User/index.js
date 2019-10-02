@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, Button } from 'react-native'
 import { ListItem } from 'react-native-elements'
+import LikedScreen from './Components/LikedScreen'
 // import LikedScreen from './Components/LikedScreen/index';
 // import CommentScreen from './Components/CommentScreen/index';
 // import { createStackNavigator } from 'react-navigation-stack';

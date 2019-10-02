@@ -6,7 +6,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 import Icon from 'react-native-vector-icons/Entypo';
 // import SingleScreen from '../screens/SingleScreen';
-import { store } from '../../../../utils/store'
+let store = require('../../../../utils/store.json');
 
 export default class LikedScreen extends Component {
 
@@ -21,7 +21,7 @@ export default class LikedScreen extends Component {
           {
             store.map((item, i) => {
               return (
-                <TouchableOpacity key={i} style={styles.storeWrap} onPress={() => this.goToOtherScreen('Store')} >
+                <TouchableOpacity key={i} style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store")} >
                   <Image
                     style={styles.image}
                     source={{ uri: item.img }}
@@ -46,7 +46,16 @@ export default class LikedScreen extends Component {
     )
   }
 }
-
+LikedScreen.navigationOptions = {
+  title: 'Liked',
+  headerStyle: {
+    backgroundColor: '#f4afae',
+  },
+  headerTintColor: '#9e4441',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+};
 // const MainNavigator = createStackNavigator({
 //   Liked: {screen: LikeScreen},
 //   Store: {screen: SingleScreen},
@@ -79,32 +88,30 @@ const styles = StyleSheet.create({
   textWrap:
   {
     flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+
   },
   storeName: {
     color: '#7f7f7f',
-    fontFamily: 'Arial',
     fontSize: 18,
     fontWeight: '700',
   },
   addName: {
     color: '#7f7f7f',
-    fontFamily: 'Arial',
     fontSize: 16,
     fontWeight: '400',
 
   },
   desStyle: {
     color: '#9e4441',
-    fontFamily: 'Arial',
     fontSize: 16,
     fontWeight: '700',
   },
   listView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     backgroundColor: 'white',
   },
 });

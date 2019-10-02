@@ -13,7 +13,7 @@ const index = ({brand}) => {
   const {uri, name, rating} = brand;
 
   return (
-    <TouchableOpacity style={[styles.card]}>
+    <TouchableOpacity style={[styles.card]} >
       <Image
         source={{uri: uri}}
         style={styles.img}
