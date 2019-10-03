@@ -25,7 +25,7 @@ export default class StoreScreen extends Component {
                         <Text style={styles.addName}>{store[_key].add}</Text>
                         <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
                             <Icon name="location" color="#9e4441" size={16} />
-                            <Text style={styles.desStyle}>{'  ' + store[_key].des + 'km'}</Text>
+                            <Text style={styles.desStyle}>{'  ' + store[_key].des + ' km'}</Text>
                         </View>
                     </View>
                     <View style={styles.pointWrap}>
@@ -55,10 +55,10 @@ export default class StoreScreen extends Component {
                     </View>
                     <View>
                         <Text style={styles.rvStyle}>
-                          {store[0].review[0].rv}
+                          {store[_key].review[0].rv}
                         </Text>
                         <ScrollView horizontal={true}>
-                        {store[0].review[0].rvImg.map((item, i) => {
+                        {store[_key].review[0].rvImg.map((item, i) => {
                             return (
                                 <Image
                                   key={i}
@@ -183,17 +183,6 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         margin: 10
       },
-      storeName: {
-        color: '#af7e7c',
-        fontSize: 18,
-        fontWeight: '700',
-      },
-      addName: {
-        color: '#af7e7c',
-        fontSize: 16,
-        fontWeight: '700',
-      },
-      
       rvStyle: {
         color: '#af7e7c',
         fontSize: 16,

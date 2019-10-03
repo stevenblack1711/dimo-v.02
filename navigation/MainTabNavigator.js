@@ -11,7 +11,7 @@ import SearchingScreen from '../scenes/Searching/index';
 import MapsScreen from '../scenes/Maps/index';
 import UserScreen from '../scenes/User/index';
 import CommentScreen from '../scenes/User/Components/CommentScreen/index';
-import LikedScreen from '../scenes/User/Components/LikedScreen/index';
+import LoginScreen from '../scenes/User/Components/LoginScreen/index';
 import StoreScreen from '../scenes/StoreScreen/index';
 import ReviewScreen from '../scenes/StoreScreen/Component/ReviewScreen/index';
 
@@ -47,8 +47,8 @@ const SearchingStack = createStackNavigator(
 
 const UserStack = createStackNavigator(
   {
+    Login:  LoginScreen ,
     User:  UserScreen ,
-    Liked:  LikedScreen ,
     Comment: CommentScreen,
     Store: StoreScreen,
     Review: ReviewScreen,

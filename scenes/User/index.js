@@ -7,15 +7,9 @@ import LikedScreen from './Components/LikedScreen'
 // import { createStackNavigator } from 'react-navigation-stack';
 // import { createAppContainer } from 'react-navigation';
 
+let users = require('../../utils/user.json');
 
 const list = [
-  {
-    title: 'Liked',
-    nameIcon: 'heart',
-    typeIcon: 'foundation',
-    colorIcon: '#9E4441',
-    ScreenName: 'Liked'
-  },
   {
     title: 'Comment',
     nameIcon: 'comment',
@@ -38,10 +32,10 @@ export default class UserScreen extends Component {
           <View style={styles.profileWrap}>
             <Image
               style={styles.userImage}
-              source={{ uri: 'https://api.adorable.io/avatars/400/da0d079569611498528223356163529d.png' }}
+              source={{ uri: users[0].imgUrl }}
             />
             <Text style={styles.userName}>
-              STEVEN BLACK
+              {users[0].name}
             </Text>
           </View>
         </View>
@@ -83,8 +77,8 @@ const styles = StyleSheet.create({
   header: {
     flex: 0.6,
     backgroundColor: '#f4afae',
-    borderRadius: 15,
-    marginTop: -10
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
   },
   profileWrap: {
     flex: 1,
@@ -93,8 +87,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   userImage: {
-    width: 192,
-    height: 192,
+    width: 160,
+    height: 160,
     borderRadius: 180
   },
   userName: {

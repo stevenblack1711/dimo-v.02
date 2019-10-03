@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingVertical: 5,
   },
-  img: { width: 50, height: 50 },
+  img: { width: 120, height: 60 },
   name: {
     fontSize: 16,
     fontWeight: 'bold',

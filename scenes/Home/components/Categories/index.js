@@ -9,11 +9,10 @@ const CategoriesIcon = props => {
     <View style={styles.category}>
       <TouchableOpacity>
         <Icon
-          raised
           reverse
           name={props.name}
           type={props.type}
-          size={35}
+          size={30}
           ontainerStyle={styles.iconContainer}
           color='#9e4441'
           iconStyle={styles.iconStyle}
@@ -34,7 +33,7 @@ const index = () => {
         <CategoriesIcon
           name="food"
           type="material-community"
-          description="Thúc ăn"
+          description="Thức ăn"
         />
         <CategoriesIcon name="drink" type="entypo" description="Thức uống" />
         <CategoriesIcon
@@ -69,7 +68,6 @@ const index = () => {
 
 const styles = StyleSheet.create({
   categoriesContainer: {
-    marginVertical: 20,
     
   },
   title: {
@@ -79,7 +77,7 @@ const styles = StyleSheet.create({
   },
   categories: {
     flexDirection: 'row',
-    
+    flex: 1
   },
   category: {
     justifyContent: 'center',
@@ -87,8 +85,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   iconContainer:{
-    justifyContent: 'center',
-    alignItems: 'center',
+    color: '#9e4441'
   },
 
   iconStyle: {
@@ -98,7 +95,10 @@ const styles = StyleSheet.create({
   descript: {
     fontSize: 16,
     color: '#9e4441',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    width: 80,
+    height: 40,
+    textAlign: 'center', 
   },
 });
 

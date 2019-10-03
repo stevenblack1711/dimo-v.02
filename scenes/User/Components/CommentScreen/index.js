@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image, Button, ScrollView, TouchableOpacity } from 'react-native'
-import { Card, ListItem } from 'react-native-elements'
+import { Text, View, StyleSheet, Image, Button, ScrollView, TouchableOpacity, FlatList } from 'react-native'
+import { Card } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Entypo';
 
 let store = require('../../../../utils/store.json');
@@ -10,49 +10,47 @@ export default class CommentScreen extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Card style={{ padding: 0, flex: 1 }}>
-          {
-            store.map((item, i) => {
-              return (
-                <View key={i} style={styles.cmtWrap} >
-                  <TouchableOpacity style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store", {key: item.key})}>
-                    <Image
-                      style={styles.image}
-                      source={{ uri: item.img }}
-                    />
-                    <View style={styles.textWrap}>
-                      <Text style={styles.storeName}>{item.name + ' - ' + item.str}</Text>
-                      <Text style={styles.addName}>{item.add}</Text>
-                      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "flex-start" }}>
-                        <Icon name="star" color="#9e4441" size={16} />
-                        <Text style={styles.addName}>{'  ' + item.point}</Text>
-                      </View>
-                    </View>
-                  </TouchableOpacity>
-                  <View>
-                    <Text style={styles.rvStyle}>
-                      {item.review[0].rv}
-                    </Text>
-                    <ScrollView horizontal={true}>
-                      {item.review[0].rvImg.map((item, i) => {
-                        return (
-                          <Image
-                            key={i}
-                            style={styles.rvImg}
-                            source={{ uri: item.imgUrl }}
-                          />
-                        )
-                      })
-                      }
-                    </ScrollView>
-                  </View>
+      <FlatList style={styles.container}  data={store}
+        renderItem={({item}) => (
+          <View  style={styles.cmtWrap} >
+            <TouchableOpacity style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store", {key: item.key})}>
+              <Image
+                style={styles.image}
+                source={{ uri: item.img }}
+              />
+              <View style={styles.textWrap}>
+                <Text style={styles.storeName}>{item.name + ' - ' + item.str}</Text>
+                <Text style={styles.addName}>{item.add}</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "flex-start" }}>
+                  <Icon name="star" color="#9e4441" size={16} />
+                  <Text style={styles.addName}>{'  ' + item.point}</Text>
                 </View>
-              );
-            })
-          }
-        </Card>
-      </ScrollView>
+              </View>
+            </TouchableOpacity>
+            <View>
+              <Text style={styles.rvStyle}>
+                {item.review[0].rv}
+              </Text>
+              <ScrollView horizontal={true}>
+                {item.review[0].rvImg.map((item, i) => {
+                  return (
+                    <Image
+                      key={i}
+                      style={styles.rvImg}
+                      source={{ uri: item.imgUrl }}
+                    />
+                  )
+                })
+                }
+              </ScrollView>
+            </View>
+          </View>
+        )
+      }
+      
+          showsHorizontalScrollIndicator={true}
+          keyExtractor={item => item.key}/>
+      
     )
   }
 }
@@ -74,17 +72,22 @@ const styles = StyleSheet.create({
   },
   cmtWrap: {
     flexDirection: 'column',
-    margin: 10
+    margin: 20,
+    shadowColor: '#af7e7c',
+    shadowOffset: { width: 3, height: 0 },
+    shadowRadius: 3,
+    backgroundColor: 'white',
+    borderRadius: 15
   },
   storeWrap: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    margin: 10
+    marginBottom: 5
   },
   image: {
-    width: 75,
-    height: 75,
+    width: 60,
+    height: 60,
     borderRadius: 180
   },
   textWrap:
@@ -92,7 +95,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'stretch',
-    margin: 10
+    marginLeft: 15,
+    marginRight: 5,
+    width: 280
   },
   storeName: {
     color: '#af7e7c',
@@ -108,7 +113,7 @@ const styles = StyleSheet.create({
   rvStyle: {
     color: '#af7e7c',
     fontSize: 16,
-    fontWeight: '400',
+    fontWeight: 'bold',
     justifyContent: 'space-around',
     alignItems: 'stretch',
   },
