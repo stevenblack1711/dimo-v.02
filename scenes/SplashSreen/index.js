@@ -23,7 +23,7 @@ export default class SplashScreen extends Component {
 
         return (
           <View style={viewStyles}>
-            <Text style={textStyles}>
+            <Text style={{fontFamily: 'BDPBIRGULA', fontSize: 50, color: 'white'}}>
               DIMO
             </Text>
           </View>
@@ -38,5 +38,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
+      
     },
   });
