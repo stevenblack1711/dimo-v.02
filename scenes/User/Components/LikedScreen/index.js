@@ -10,10 +10,6 @@ let store = require('../../../../utils/store.json');
 
 export default class LikedScreen extends Component {
 
-  goToOtherScreen = ScreenName => {
-    this.props.navigation.navigate(ScreenName);
-  }
-
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -21,7 +17,7 @@ export default class LikedScreen extends Component {
           {
             store.map((item, i) => {
               return (
-                <TouchableOpacity key={i} style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store")} >
+                <TouchableOpacity key={i} style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store", {key: item.key})} >
                   <Image
                     style={styles.image}
                     source={{ uri: item.img }}

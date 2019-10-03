@@ -11,10 +11,10 @@ import { Image, Icon } from 'react-native-elements';
 import { withNavigation } from 'react-navigation'
 
 const index = (props) => {
-  const { img, name, point, add} = props.brand;
+  const { img, name, point, add, key} = props.brand;
 
   return (
-    <TouchableOpacity style={[styles.card]} onPress={() => props.navigation.navigate("Store")}>
+    <TouchableOpacity style={[styles.card]} onPress={() => props.navigation.navigate("Store", {key: key})}>
       <Image
         source={{ uri: img }}
         style={styles.img}

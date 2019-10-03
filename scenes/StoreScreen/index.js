@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image, Button, ScrollView } from 'react-native'
+import { Text, View, StyleSheet, Image, Button, ScrollView, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Entypo';
 //import store from '../../utils/store.json'
 
@@ -9,21 +9,23 @@ let user = require('../../utils/user.json');
 export default class StoreScreen extends Component {
 
     render() {
+      const { navigation } = this.props;  
+      const _key = navigation.getParam('key', 'NO-Key');  
         return (
             <View style={styles.container} >
             <ScrollView>
             <View>
                 <Image
                 style={styles.image}
-                source={{ uri: store[1].img }}
+                source={{ uri: store[_key].img }}
                 />
                 <View style={styles.infoWrap}>               
                     <View style={styles.textWrap}>
-                        <Text style={styles.storeName}>{store[1].name + ' - ' + store[1].str}</Text>
-                        <Text style={styles.addName}>{store[1].add}</Text>
+                        <Text style={styles.storeName}>{store[_key].name + ' - ' + store[_key].str}</Text>
+                        <Text style={styles.addName}>{store[_key].add}</Text>
                         <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
                             <Icon name="location" color="#9e4441" size={16} />
-                            <Text style={styles.desStyle}>{'  ' + store[1].des + 'km'}</Text>
+                            <Text style={styles.desStyle}>{'  ' + store[_key].des + 'km'}</Text>
                         </View>
                     </View>
                     <View style={styles.pointWrap}>
@@ -31,7 +33,11 @@ export default class StoreScreen extends Component {
                     </View>
                 </View>
             </View>
-            <Button color="#e9928f" title="Viết đánh giá"/>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <TouchableOpacity  onPress={() => this.props.navigation.navigate("Review")}>
+                  <Text style={styles.btnText}>Viết đánh giá</Text>
+              </TouchableOpacity>  
+            </View>
             <View style={styles.cmtWrap}> 
                 <View> 
                     <View style={styles.userWrap}>
@@ -43,7 +49,7 @@ export default class StoreScreen extends Component {
                             <Text style={styles.storeName}>{user[0].username}</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "flex-start" }}>
                             <Icon name="star" color="#9e4441" size={16} />
-                            <Text style={styles.addName}>{'  ' + store[0].point}</Text>
+                            <Text style={styles.addName}>{'  ' + store[_key].point}</Text>
                             </View>
                         </View>
                     </View>
@@ -67,7 +73,11 @@ export default class StoreScreen extends Component {
                 </View>              
                 </View>
             </ScrollView>
-            <Button color="#e9928f" title="Thanh toán bằng MOMO" />
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <TouchableOpacity style={styles.btnStyle} >
+                  <Text style={styles.btnText}>THANH TOÁN BẰNG MOMO</Text>
+              </TouchableOpacity>  
+            </View>
             </View>
         )
     }
@@ -151,10 +161,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '700',
     },
-    btnStyle:
-    {
-        color: '#e9928f',
-    },
     cmtWrap: {
         flexDirection: 'column',
         margin: 10
@@ -202,5 +208,23 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         margin: 5
+      },
+      btnText: {
+        fontSize: 18,
+        color: '#9e4441',
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        alignItems: 'center'
+      },
+      btnStyle: {
+        shadowColor: 'black',
+        shadowOffset: { width: 15, height: 15 },
+        shadowRadius: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 50,
+        minWidth: 420,
+        borderTopRightRadius: 30,
+        backgroundColor: '#e9928f'
       }
 });

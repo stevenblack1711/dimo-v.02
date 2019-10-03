@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "409368944515",
+    "firebase_url": "https://appdimo.firebaseio.com",
+    "project_id": "appdimo",
+    "storage_bucket": "appdimo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409368944515:android:32ad02a897fc3404dde0b6",
+        "android_client_info": {
+          "package_name": "com.deemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409368944515-j34pup3dvc1juf4aus370o9jkqrf6isn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deemo",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "409368944515-g026hkaaqck776df28c1eak4pdsr7oq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAungXYDSWX2AeWwy4XFKIHYn_3m1gHPqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409368944515-hk60ragv68kdlock2n2fhiuct3etnomo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

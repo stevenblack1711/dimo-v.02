@@ -13,12 +13,13 @@ import UserScreen from '../scenes/User/index';
 import CommentScreen from '../scenes/User/Components/CommentScreen/index';
 import LikedScreen from '../scenes/User/Components/LikedScreen/index';
 import StoreScreen from '../scenes/StoreScreen/index';
-
+import ReviewScreen from '../scenes/StoreScreen/Component/ReviewScreen/index';
 
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Store: StoreScreen
+    Store: StoreScreen,
+    Review: ReviewScreen,
   },
   {
     headerMode: 'none',
@@ -50,6 +51,7 @@ const UserStack = createStackNavigator(
     Liked:  LikedScreen ,
     Comment: CommentScreen,
     Store: StoreScreen,
+    Review: ReviewScreen,
   },
   {
     headerMode: 'float',

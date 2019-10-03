@@ -16,7 +16,7 @@ export default class CommentScreen extends Component {
             store.map((item, i) => {
               return (
                 <View key={i} style={styles.cmtWrap} >
-                  <TouchableOpacity style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store")}>
+                  <TouchableOpacity style={styles.storeWrap} onPress={() => this.props.navigation.navigate("Store", {key: item.key})}>
                     <Image
                       style={styles.image}
                       source={{ uri: item.img }}
