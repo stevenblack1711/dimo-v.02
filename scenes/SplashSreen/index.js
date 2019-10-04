@@ -10,7 +10,7 @@ export default class SplashScreen extends Component {
   async componentDidMount() {
     setTimeout(
       () => {  this.props.navigation.navigate('Main') },
-      2000
+      1000
     )
   }
     render() {
@@ -23,7 +23,7 @@ export default class SplashScreen extends Component {
 
         return (
           <View style={viewStyles}>
-            <Text style={textStyles}>
+            <Text style={{fontFamily: 'BDPBIRGULA', fontSize: 50, color: 'white'}}>
               DIMO
             </Text>
           </View>

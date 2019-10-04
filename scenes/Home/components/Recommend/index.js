@@ -1,64 +1,51 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 
 import Separator from '../../../Separator/index';
-import BrandCard from './Card/index';
+import Card from './Card/index';
+import {withNavigation} from 'react-navigation'
 
-const BRANDS = [
-  {
-    key: '1',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '2',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '3',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-  {
-    key: '4',
-    uri: 'https://wallpaperaccess.com/full/759166.jpg',
-    name: 'supreme',
-    rating: '5.0',
-    discount: '1',
-  },
-];
+class  index extends Component {
+  state = {
+    listStore: [],
+  };
 
-const index = () => {
-  return (
+   componentDidMount = async() => 
+  {
+    const {listStore} = this.state; 
+    const response = await fetch (
+      `http://imagecaption.search.mmlab.uit.edu.vn/api/store/user_id=525&lat=10.76211&long=106.70806&km_limit=1`
+      );
+    const jsonResponse = await response.json();
+    this.setState({
+    listStore: jsonResponse.data
+      });
+  }
+  
+  renderItem = ({item}) => {
+    return<Card
+    store={item}
+  />
+  }
+  render() {
+    const {listStore} = this.state;
+    return (
     <View style={styles.container}>
-      <Text style={styles.title}>Recommend for you</Text>
+      <Text style={styles.title}>Đề xuất cho bạn</Text>
       <Separator />
       <View style={styles.flatList}>
         <FlatList
-          data={BRANDS}
-          renderItem={({item}) => (
-            <BrandCard
-              brand={item}
-              // title={item.title}
-              // selected={!!selected.get(item.id)}
-              // onSelect={onSelect}
-            />
-          )}
+          data={listStore}
+          renderItem={this.renderItem}
           horizontal
           showsHorizontalScrollIndicator={false}
-          keyExtractor={item => item.key}
+          keyExtractor={item => item.id}
         />
       </View>
     </View>
   );
 };
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -66,10 +53,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
+    color: '#9e4441',
+    fontWeight: 'bold'
   },
   flatList: {
     marginTop: 15,
   },
 });
 
-export default index;
+export default withNavigation(index);

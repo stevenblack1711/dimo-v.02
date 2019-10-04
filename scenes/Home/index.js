@@ -6,12 +6,14 @@ import Categories from './components/Categories/index';
 import Brands from './components/Brands/index';
 import Recommend from './components/Recommend/index';
 
-const index = () => {
+const index = (props) => {
   return (
     <View style={styles.container}>
-      <Header />
+          <Header />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Categories />
+        <View style={styles.categories}>
+          <Categories />
+        </View>
         <Brands />
         <Recommend />
       </ScrollView>
@@ -22,7 +24,11 @@ const index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E9EBEE',
+    backgroundColor: 'white',
+  },
+  categories: {
+    flex: 0.3,
+    backgroundColor: 'white',
   },
   scrollContainer: {
     marginHorizontal: 15,

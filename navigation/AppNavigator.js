@@ -1,11 +1,11 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
-import SplashSreen from '../scenes/SplashSreen/index'
+import SplashSreen from '../scenes/SplashSreen/index';
 
 export default createAppContainer(
   createSwitchNavigator({
-    SplashSreen: SplashSreen,
+    SplashSreen: SplashSreen,   
     Main: MainTabNavigator,
   }),
 );

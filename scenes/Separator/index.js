@@ -7,7 +7,7 @@ const index = () => {
 
 const styles = StyleSheet.create({
   sep: {
-    backgroundColor: 'red',
+    backgroundColor: '#9e4441',
     height: 5,
     width: 70,
     borderRadius: 5,

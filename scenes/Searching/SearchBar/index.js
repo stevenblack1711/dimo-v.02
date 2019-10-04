@@ -18,13 +18,6 @@ class index extends React.Component {
   render() {
     return (
       <View style={styles.header}>
-        <Icon
-          name="menu"
-          type="entypo"
-          color="white"
-          size={35}
-          containerStyle={styles.headerIcon}
-        />
         <SearchBar
           lightTheme
           round
@@ -49,7 +42,7 @@ class index extends React.Component {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    backgroundColor: 'red',
+    backgroundColor: '#e9928f',
     justifyContent: 'space-between',
     alignItems: 'center',
   },

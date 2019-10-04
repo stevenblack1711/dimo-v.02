@@ -31,6 +31,7 @@
 		223062EEF9244F2AB0560203 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BAC240791444389812B24EB /* Octicons.ttf */; };
 		9A806622E47648FCAB708FDA /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9F3B475D8724C24B114FE6F /* SimpleLineIcons.ttf */; };
 		F86087FF50804C609CA30C5A /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8320A1EFD65449969B1A59EF /* Zocial.ttf */; };
+		726F297B8BD543438D91A942 /* BDPBIRGULA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAFF89B20CD646C78822AE89 /* BDPBIRGULA.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		6BAC240791444389812B24EB /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A9F3B475D8724C24B114FE6F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		8320A1EFD65449969B1A59EF /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BAFF89B20CD646C78822AE89 /* BDPBIRGULA.ttf */ = {isa = PBXFileReference; name = "BDPBIRGULA.ttf"; path = "../assets/fonts/BDPBIRGULA.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				6BAC240791444389812B24EB /* Octicons.ttf */,
 				A9F3B475D8724C24B114FE6F /* SimpleLineIcons.ttf */,
 				8320A1EFD65449969B1A59EF /* Zocial.ttf */,
+				BAFF89B20CD646C78822AE89 /* BDPBIRGULA.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				223062EEF9244F2AB0560203 /* Octicons.ttf in Resources */,
 				9A806622E47648FCAB708FDA /* SimpleLineIcons.ttf in Resources */,
 				F86087FF50804C609CA30C5A /* Zocial.ttf in Resources */,
+				726F297B8BD543438D91A942 /* BDPBIRGULA.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
