@@ -1,7 +1,7 @@
 [
   
   {
-        "key": 0,
+        "key": "0",
        "name": "The Coffee House",
        "str": "Võ Văn Tần",
        "add": "227 Võ Văn Tần",
@@ -24,7 +24,7 @@
     },
 
     {
-        "key": 1,
+        "key": "1",
         "name": "The Coffee House",
         "str": "Võ Văn Tần",
         "add": "227 Võ Văn Tần",
@@ -46,7 +46,7 @@
         ]
     },
     {
-        "key": 2,
+        "key": "2",
         "name": "The Coffee House",
         "str": "Võ Văn Tần",
         "add": "227 Võ Văn Tần",

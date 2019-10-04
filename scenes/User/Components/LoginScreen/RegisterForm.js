@@ -57,8 +57,9 @@ class RegisterForm extends Component {
                         style={styles.textInput}
                         placeholder='Password'
                         value={password}
+                        keyboardType={'numeric'}
                         onChangeText={this._handleTextInputChange('password')}
-                        secureTextEntry/>
+                        secureTextEntry={true}/>
 
                     <Button
                         style={styles.button}
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-between',
         width: '100%',
-        backgroundColor: '#eee',
+        backgroundColor: '#F4C2C0',
     },
 
     form: {
@@ -90,11 +91,13 @@ const styles = StyleSheet.create({
 
     textInput: {
         borderWidth: 1,
-        borderColor: '#999',
+        borderColor: 'white',
         padding: 10,
         marginBottom: 20,
         minWidth: 200,
-        textAlign: 'center'
+        textAlign: 'center',
+        borderRadius: 15,
+        backgroundColor: 'white'
     },
 
     button: {}

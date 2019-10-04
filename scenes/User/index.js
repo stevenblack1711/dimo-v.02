@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Image, Button } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import LoginScreen from './Components/LoginScreen/index'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
@@ -66,10 +66,7 @@ _handlePressLogout = () => {
             <Text style={styles.userName}>
                {name}
             </Text>
-            {
-                    isAuth &&
-                    <Button color='#999' title='Logout' onPress={this._handlePressLogout}/>
-            }
+            
           </View>
         </View>
         <View>
@@ -87,7 +84,12 @@ _handlePressLogout = () => {
             )
           }
         </View>
-
+        {
+                    isAuth &&
+                    <TouchableOpacity style={styles.button} onPress={this._handlePressLogout}>
+                        <Text style={styles.btnText}>LOGOUT</Text>
+                    </TouchableOpacity>
+         }
       </View>
     )
   }
@@ -134,6 +136,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
+  button: {
+    backgroundColor: '#E9928F',
+    minWidth: 150,
+    minHeight: 50,
+    borderRadius: 15,
+    margin: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+},
+btnText:
+{
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold',
+    alignItems: 'center',
+    justifyContent: 'center'
+}
 });
 
 

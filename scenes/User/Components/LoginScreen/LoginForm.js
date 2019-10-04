@@ -51,20 +51,23 @@ class LoginForm extends Component {
                         style={styles.textInput}
                         placeholder='Username'
                         value={username}
+                        fontSize={20}
                         onChangeText={this._handleTextInputChange('username')}/>
                     <TextInput
                         style={styles.textInput}
                         placeholder='Password'
                         value={password}
+                        keyboardType={'numeric'}
+                        fontSize={20}
                         onChangeText={this._handleTextInputChange('password')}
-                        secureTextEntry/>
+                        secureTextEntry={true}/>
 
-                    <Button
-                        style={styles.button}
-                        title='Login' onPress={this._handlePressLogin}/>
+                    <TouchableOpacity style={styles.button} onPress={this._handlePressLogin}>
+                        <Text style={styles.btnText}>LOGIN</Text>
+                    </TouchableOpacity>
 
                     <TouchableOpacity onPress={this._handlePressRegister}>
-                        <Text>Or register now!</Text>
+                        <Text  style={styles.btnText}>Or register now!</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-between',
         width: '100%',
-        backgroundColor: '#eee',
+        backgroundColor: '#F4C2C0',
     },
 
     form: {
@@ -89,14 +92,32 @@ const styles = StyleSheet.create({
 
     textInput: {
         borderWidth: 1,
-        borderColor: '#999',
+        borderColor: 'white',
         padding: 10,
         marginBottom: 20,
         minWidth: 200,
-        textAlign: 'center'
+        textAlign: 'center',
+        borderRadius: 15,
+        backgroundColor: 'white'
     },
 
-    button: {}
+    button: {
+        backgroundColor: '#E9928F',
+        minWidth: 150,
+        minHeight: 50,
+        borderRadius: 15,
+        margin: 20,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    btnText:
+    {
+        fontSize: 20,
+        color: 'white',
+        fontWeight: 'bold',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 })
 
 LoginForm.propTypes = {
