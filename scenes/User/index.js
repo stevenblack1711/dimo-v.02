@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image, Button } from 'react-native'
 import { ListItem } from 'react-native-elements'
-import LikedScreen from './Components/LikedScreen'
-// import LikedScreen from './Components/LikedScreen/index';
-// import CommentScreen from './Components/CommentScreen/index';
-// import { createStackNavigator } from 'react-navigation-stack';
-// import { createAppContainer } from 'react-navigation';
+import LoginScreen from './Components/LoginScreen/index'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {
+  getCurrentUser,
+  isAuthenticated,
+  logout,
+  subscribeAuthentication,
+  unsubscribeAuthentication
+} from "./Components/LoginScreen/service/AuthServices"
 
 let users = require('../../utils/user.json');
 
@@ -21,11 +25,36 @@ const list = [
 
 export default class UserScreen extends Component {
 
-  goToOtherScreen = ScreenName => {
-    this.props.navigation.navigate(ScreenName);
-  }
+  state = {
+    isAuth: isAuthenticated(),
+    user: getCurrentUser()
+}
+
+componentDidMount() {
+    subscribeAuthentication(this._handleAuthChange)
+}
+
+componentWillUnmount() {
+    unsubscribeAuthentication(this._handleAuthChange)
+}
+
+_handleAuthChange = () => {
+    this.setState({
+        isAuth: isAuthenticated(),
+        user: getCurrentUser()
+    })
+}
+
+_handlePressLogout = () => {
+    logout()
+
+    this.props.navigation.navigate('LoginScreen')
+}
+
 
   render() {
+    const {user, isAuth} = this.state
+    const name = user.name || 'Guest'
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -35,8 +64,12 @@ export default class UserScreen extends Component {
               source={{ uri: users[0].imgUrl }}
             />
             <Text style={styles.userName}>
-              {users[0].name}
+               {name}
             </Text>
+            {
+                    isAuth &&
+                    <Button color='#999' title='Logout' onPress={this._handlePressLogout}/>
+            }
           </View>
         </View>
         <View>
@@ -59,14 +92,6 @@ export default class UserScreen extends Component {
     )
   }
 }
-
-// const MainNavigator = createStackNavigator({
-//   Me: { screen: MeScreen },
-//   Liked: { screen: LikedScreen },
-//   Comment: { screen: CommentScreen },
-// });
-
-// const UserScreen = createAppContainer(MainNavigator);
 
 
 const styles = StyleSheet.create({

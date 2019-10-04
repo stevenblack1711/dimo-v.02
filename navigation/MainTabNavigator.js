@@ -2,14 +2,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Icon } from 'react-native-elements';
 
 import HomeScreen from '../scenes/Home/index';
 import SearchingScreen from '../scenes/Searching/index';
 import MapsScreen from '../scenes/Maps/index';
-import UserScreen from '../scenes/User/index';
 import CommentScreen from '../scenes/User/Components/CommentScreen/index';
 import LoginScreen from '../scenes/User/Components/LoginScreen/index';
 import StoreScreen from '../scenes/StoreScreen/index';
@@ -48,7 +46,6 @@ const SearchingStack = createStackNavigator(
 const UserStack = createStackNavigator(
   {
     Login:  LoginScreen ,
-    User:  UserScreen ,
     Comment: CommentScreen,
     Store: StoreScreen,
     Review: ReviewScreen,
@@ -65,7 +62,7 @@ const UserStack = createStackNavigator(
         />
       ),
     },
-    initialRouteName: 'User',
+    initialRouteName: 'Login',
   },
 );
 
