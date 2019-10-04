@@ -1,7 +1,7 @@
 # dimo-v.02
 ## DIMO App
 ![Image of Yaktocat](https://github.com/Stevenblack1717/dimo-v.02/blob/stevenblack/assets/logo/dimo.png)
-DIMO is an app that 'Recommend' App for user, recommend nearest stores, coffee shop, ... and user pay by MOMO app.
+DIMO is an app that 'Recommend' App for user, recommend nearest and personalization stores, coffee shop, ... and user pay by MOMO app.
 
 ## Home Screen
 ![Image of Yaktocat](https://github.com/Stevenblack1717/dimo-v.02/blob/stevenblack/assets/screen/HomeScreen.png)
