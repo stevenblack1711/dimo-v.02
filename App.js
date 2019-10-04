@@ -1,9 +1,10 @@
 import React from 'react';
-import {StyleSheet, View, Platform, StatusBar, YellowBox} from 'react-native';
+import { StyleSheet, View, Platform, StatusBar, YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: componentWillMount']);
 
 import AppNavigator from './navigation/AppNavigator';
 
+console.disableYellowBox = true;
 const App = props => {
   return (
     <View style={styles.container}>

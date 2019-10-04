@@ -1,50 +1,47 @@
-import React, {Component}  from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
 import Separator from '../../../Separator/index';
 import BrandCard from './BrandCard/index';
-import {withNavigation} from 'react-navigation'
+import { withNavigation } from 'react-navigation'
 
-class  index extends Component {
+class index extends Component {
   state = {
     listStore: [],
   };
 
-   componentDidMount = async() => 
-  {
-    const {listStore} = this.state; 
-    const response = await fetch (
+  componentDidMount = async () => {
+
+    const response = await fetch(
       `http://imagecaption.search.mmlab.uit.edu.vn/api/store/user_id=525&lat=10.76211&long=106.70806&km_limit=1`
-      );
+    );
     const jsonResponse = await response.json();
     this.setState({
-    listStore: jsonResponse.data
-      });
+      listStore: jsonResponse.data
+    });
   }
-  
-  renderItem = ({item}) => {
-    return<BrandCard
-    brand={item}
-  />
+
+  renderItem = ({ item, index }) => {
+    return <BrandCard store={item} />
   }
   render() {
-    const {listStore} = this.state;
+    const { listStore } = this.state;
     return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Nhãn hiệu tuyệt vời</Text>
-      <Separator />
-      <View style={styles.flatList}>
-        <FlatList
-          data={listStore}
-          renderItem={this.renderItem}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={item => item.key}
-        />
+      <View style={styles.container}>
+        <Text style={styles.title}>Nhãn hiệu nổi bật</Text>
+        <Separator />
+        <View style={styles.flatList}>
+          <FlatList
+            data={listStore}
+            renderItem={this.renderItem}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={item => item.id}
+          />
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  };
 }
 
 const styles = StyleSheet.create({
