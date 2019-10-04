@@ -1,28 +1,42 @@
-import React from 'react';
+import React, {Component}  from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 
 import Separator from '../../../Separator/index';
 import BrandCard from './BrandCard/index';
 import {withNavigation} from 'react-navigation'
 
-const BRANDS = require('../../../../utils/store.json')
+class  index extends Component {
+  state = {
+    listStore: [],
+  };
 
-const index = (props) => {
-  return (
+   componentDidMount = async() => 
+  {
+    const {listStore} = this.state; 
+    const response = await fetch (
+      `http://imagecaption.search.mmlab.uit.edu.vn/api/store/user_id=525&lat=10.76211&long=106.70806&km_limit=1`
+      );
+    const jsonResponse = await response.json();
+    this.setState({
+    listStore: jsonResponse.data
+      });
+  }
+  
+  renderItem = ({item}) => {
+    return<BrandCard
+    brand={item}
+  />
+  }
+  render() {
+    const {listStore} = this.state;
+    return (
     <View style={styles.container}>
       <Text style={styles.title}>Nhãn hiệu tuyệt vời</Text>
       <Separator />
       <View style={styles.flatList}>
         <FlatList
-          data={BRANDS}
-          renderItem={({item}) => (
-            <BrandCard
-              brand={item}
-              // title={item.title}
-              // selected={!!selected.get(item.id)}
-              // onSelect={onSelect}
-            />
-          )}
+          data={listStore}
+          renderItem={this.renderItem}
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={item => item.key}
@@ -31,6 +45,7 @@ const index = (props) => {
     </View>
   );
 };
+}
 
 const styles = StyleSheet.create({
   container: {

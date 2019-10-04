@@ -9,9 +9,11 @@ import Recommend from './components/Recommend/index';
 const index = (props) => {
   return (
     <View style={styles.container}>
-      <Header />
+          <Header />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Categories />
+        <View style={styles.categories}>
+          <Categories />
+        </View>
         <Brands />
         <Recommend />
       </ScrollView>
@@ -22,6 +24,10 @@ const index = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
+  },
+  categories: {
+    flex: 0.3,
     backgroundColor: 'white',
   },
   scrollContainer: {
